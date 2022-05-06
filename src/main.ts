@@ -4,7 +4,5 @@ import router from './router/index';
 import store from './store';
 import antd from 'ant-design-vue';
 import 'ant-design-vue/dist/antd.css';
-import request from './utils/request';
 const app = createApp(App);
 app.use(router).use(store).use(antd).mount('#app');
-app.config.globalProperties.$request = request;
