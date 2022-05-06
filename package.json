@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "scripts": {
-    "dev": "vite",
+    "dev": "vite --port 9001",
     "build": "vue-tsc --noEmit && vite build",
     "preview": "vite preview"
   },
@@ -19,6 +19,7 @@
   },
   "devDependencies": {
     "@types/node": "^17.0.26",
+    "@types/store": "^2.0.2",
     "@vitejs/plugin-vue": "^2.3.1",
     "typescript": "^4.5.4",
     "vite": "^2.9.5",
