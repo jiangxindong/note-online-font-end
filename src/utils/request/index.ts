@@ -8,14 +8,14 @@ const service = axios.create({
   baseURL: '/',
   timeout: 6000,
 });
-service.interceptors.request.use(config => {
+service.interceptors.request.use((config) => {
   const token = storage.get('token');
   if (token && config.headers) {
     config.headers.authorization = token;
   }
   return config;
 });
-service.interceptors.response.use(response => {
+service.interceptors.response.use((response) => {
   const { message: msg, code } = response.data;
   if (code !== 200000) {
     if (code === 400004 || code === 400005) {
@@ -30,18 +30,32 @@ service.interceptors.response.use(response => {
   return response.data;
 });
 const request = {
-  post(url: string, data: object, prefix: string = apiPrefix) {
+  post(url: string, data?: object, prefix: string = apiPrefix) {
     return service({
       method: 'post',
       url: prefix + url,
       data,
     });
   },
-  get(url: string, data: object, prefix: string = apiPrefix) {
+  get(url: string, data?: object, prefix: string = apiPrefix) {
     return service({
       method: 'get',
       url: prefix + url,
       params: data,
+    });
+  },
+  delete(url: string, data?: object, prefix: string = apiPrefix) {
+    return service({
+      method: 'DELETE',
+      url: prefix + url,
+      params: data,
+    });
+  },
+  put(url: string, data?: object, prefix: string = apiPrefix) {
+    return service({
+      method: 'PATCH',
+      url: prefix + url,
+      data,
     });
   },
 };
