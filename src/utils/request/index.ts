@@ -18,7 +18,7 @@ service.interceptors.request.use(config => {
 service.interceptors.response.use(response => {
   const { message: msg, code } = response.data;
   if (code !== 200000) {
-    if (code === '400004' || code === '400005') {
+    if (code === 400004 || code === 400005) {
       message.info('登陆状态过期');
       const { origin } = window.location;
       // locate to login page
