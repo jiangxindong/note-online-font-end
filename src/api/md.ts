@@ -3,11 +3,17 @@ const md = {
   getTree: () => {
     return request.get('/md/getTree');
   },
-  delete: id => {
+  delete: (id) => {
     return request.delete(`/md/${id}`);
   },
-  new: params => {
+  new: (params) => {
     return request.post('/md', params);
+  },
+  update: (id, params) => {
+    return request.put(`/md/${id}`, params);
+  },
+  getDetail: (id) => {
+    return request.get(`/md/${id}`);
   },
 };
 export default md;

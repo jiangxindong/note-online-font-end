@@ -53,7 +53,7 @@ const request = {
   },
   put(url: string, data?: object, prefix: string = apiPrefix) {
     return service({
-      method: 'PATCH',
+      method: 'put',
       url: prefix + url,
       data,
     });
